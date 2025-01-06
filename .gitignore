@@ -1,0 +1,9 @@
+./data
+./data/*
+downloaded_urls_miyuki.txt
+ffmpeg_input_miyuki.txt
+tmp_movie_miyuki.html
+
+.env
+
+./vscode
