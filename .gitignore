@@ -4,6 +4,10 @@ downloaded_urls_miyuki.txt
 ffmpeg_input_miyuki.txt
 tmp_movie_miyuki.html
 
+./miyuki/downloaded_urls_miyuki.txt
+./miyuki/ffmpeg_input_miyuki.txt
+./miyuki/tmp_movie_miyuki.html
+
 .env
 
 ./vscode
