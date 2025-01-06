@@ -579,6 +579,26 @@ def check_positive_integer(limit):
     return False
 
 
+def ensure_directory_exists(path):
+    try:
+        full_path = os.path.expanduser(path)
+
+        if not os.path.exists(full_path):
+            logging.info(f"Directory {full_path} does not exist, creating...")
+            os.makedirs(full_path, exist_ok=True)
+        else:
+            logging.info(
+                f"Directory {full_path} already exists, movies will be saved here."
+            )
+        return True
+    except PermissionError as e:
+        logging.error(f"Permission denied when creating directory {full_path}: {e}")
+        return False
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+        return False
+
+
 def validate_args(args):
     urls = args.urls
     auth = args.auth
@@ -639,9 +659,9 @@ def validate_args(args):
         logging.error("The -timeout option accepts only positive integers.")
         exit(magic_number)
 
-    if not os.path.exists(root):
-        logging.info("Root folder does not exist, creating...")
-        os.makedirs(root)
+    if not ensure_directory_exists(root):
+        logging.error("Failed to create the root directory.")
+        exit(magic_number)
 
     if not root.endswith("/"):
         args.root = root + "/"
