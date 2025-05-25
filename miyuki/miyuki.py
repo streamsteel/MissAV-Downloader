@@ -288,7 +288,7 @@ def create_root_folder_if_not_exists(folder_name):
 
 
 def get_movie_uuid(url):
-    html = requests.get(url=url, headers=headers, verify=False).text
+    html = requests.get(url=url, headers=headers).text
 
     with open(TMP_HTML_FILE, "w", encoding="UTF-8") as file:
         file.write(html)
