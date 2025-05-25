@@ -29,7 +29,8 @@ href_regex_movie_collection = (
 )
 href_regex_public_playlist = r'<a href="([^"]+)" alt="'
 href_regex_next_page = r'<a href="([^"]+)" rel="next"'
-match_uuid_pattern = r"m3u8\|([a-f0-9\|]+)\|com\|surrit\|https\|video"
+# match_uuid_pattern = r"m3u8\|([a-f0-9\|]+)\|com\|surrit\|https\|video"
+match_uuid_pattern = r"m3u8\|([a-f0-9]+\|)+com\|surrit\|https\|video(\|.+)?"
 # match_title_pattern = r'<h1 class="text-base lg:text-lg text-nord6">([^"]+)</h1>'
 match_title_pattern = r'<title>([^"]+)</title>'
 RESOLUTION_PATTERN = r"RESOLUTION=(\d+)x(\d+)"
